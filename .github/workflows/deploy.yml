@@ -28,17 +28,6 @@ jobs:
       - name: Build project
         run: npm run build  # This generates the `dist` folder
 
-      # Step 5.1: Clean public_html directory
-      - name: Clean public_html
-        uses: appleboy/ssh-action@v0.1.5
-        with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          port: ${{ secrets.HOSTINGER_SSH_PORT }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}  # Hostinger SSH password
-          script: |
-            rm -rf /public_html/*
-
       # Step 5.2: Deploy to Hostinger via SSH
       - name: Deploy to Hostinger
         uses: appleboy/scp-action@v0.1.5
