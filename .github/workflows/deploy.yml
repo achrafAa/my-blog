@@ -3,7 +3,7 @@ name: Deploy Astro to Hostinger
 on:
   push:
     branches:
-      - master  # Trigger on changes to the master branch
+      - main  # Trigger on changes to the master branch
 
 jobs:
   build-and-deploy:
