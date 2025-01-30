@@ -37,4 +37,4 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}  # Hostinger SSH username
           password: ${{ secrets.HOSTINGER_PASSWORD }}  # Hostinger SSH password
           source: "dist/*"  # Source files to deploy (the `dist` folder)
-          target: "/public_html"  # Target directory on Hostinger
+          target: "/"  # Target directory on Hostinger
