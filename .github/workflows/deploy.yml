@@ -35,7 +35,7 @@ jobs:
           host: ${{ secrets.HOSTINGER_HOST }}
           port: ${{ secrets.HOSTINGER_SSH_PORT }}
           username: ${{ secrets.HOSTINGER_USERNAME }}
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}  # Hostinger SSH password
           script: |
             rm -rf /public_html/*
 
@@ -46,6 +46,6 @@ jobs:
           host: ${{ secrets.HOSTINGER_HOST }}  # Hostinger server IP or domain
           port: ${{ secrets.HOSTINGER_SSH_PORT }} #Hostinger SSH PORT
           username: ${{ secrets.HOSTINGER_USERNAME }}  # Hostinger SSH username
-          key: ${{ secrets.HOSTINGER_SSH_KEY }}  # Hostinger SSH private key
+          password: ${{ secrets.HOSTINGER_PASSWORD }}  # Hostinger SSH password
           source: "dist/*"  # Source files to deploy (the `dist` folder)
           target: "/public_html"  # Target directory on Hostinger
