@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 
 const latestPosts = await getCollection('blog', ({ data }) => {
   return data.draft !== true;
@@ -46,32 +47,44 @@ const latestPosts = await getCollection('blog', ({ data }) => {
 			</h2>
 			<div class="grid gap-8 md:grid-cols-3">
 				{latestPosts.map((post) => (
-					<article class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-						{post.data.heroImage && (
-							<img src={post.data.heroImage} alt="" class="w-full h-48 object-cover">
-						)}
-						<div class="p-6">
-							<div class="flex items-center gap-2 mb-4">
-								{post.data.tags.map((tag) => (
-									<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-										{tag}
-									</span>
-								))}
+					<a href={`/blog/${post.slug}`} class="block group">
+						<article class="h-full bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+							<div class="relative w-full h-48 bg-gray-200 flex items-center justify-center">
+								{post.data.heroImage ? (
+									<Image 
+										src={post.data.heroImage} 
+										alt={post.data.title} 
+										width={800}
+										height={400}
+										class="w-full h-full object-cover"
+									/>
+								) : (
+									<span class="text-gray-500">No Image Available</span>
+								)}
+								<h3 class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-30 text-white text-lg font-semibold p-2 text-center">
+									{post.data.title}
+								</h3>
 							</div>
-							<h3 class="text-xl font-semibold text-gray-900 mb-2">
-								{post.data.title}
-							</h3>
-							<p class="text-gray-600 mb-4 line-clamp-3">
-								{post.data.description}
-							</p>
-							<a href={`/blog/${post.slug}`} class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center">
-								Read more
-								<svg class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-									<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-								</svg>
-							</a>
-						</div>
-					</article>
+							<div class="p-6">
+								<div class="flex items-center gap-2 mb-4">
+									{post.data.tags.map((tag) => (
+										<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 border border-blue-200 text-blue-700 whitespace-nowrap">
+											{tag}
+										</span>
+									))}
+								</div>
+								<p class="text-gray-600 mb-4 line-clamp-3">
+									{post.data.description}
+								</p>
+								<span class="text-blue-600 group-hover:text-blue-800 font-medium inline-flex items-center">
+									Read more
+									<svg class="w-4 h-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+										<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+									</svg>
+								</span>
+							</div>
+						</article>
+					</a>
 				))}
 			</div>
 		</div>

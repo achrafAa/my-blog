@@ -1,1 +1,5 @@
 @import "tailwindcss";
+
+p {
+  margin-bottom: 1.5rem; /* Adjust the value as needed */
+}
