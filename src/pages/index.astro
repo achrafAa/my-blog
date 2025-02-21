@@ -45,11 +45,11 @@ const latestPosts = await getCollection('blog', ({ data }) => {
 			<h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">
 				Latest Blog Posts
 			</h2>
-			<div class="grid gap-8 md:grid-cols-3">
+			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 				{latestPosts.map((post) => (
 					<a href={`/blog/${post.slug}`} class="block group">
 						<article class="h-full bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-							<div class="relative w-full h-48 bg-gray-200 flex items-center justify-center">
+							<div class="relative w-full h-48 bg-gray-200">
 								{post.data.heroImage ? (
 									<Image 
 										src={post.data.heroImage} 
@@ -59,16 +59,18 @@ const latestPosts = await getCollection('blog', ({ data }) => {
 										class="w-full h-full object-cover"
 									/>
 								) : (
-									<span class="text-gray-500">No Image Available</span>
+									<span class="absolute inset-0 flex items-center justify-center text-gray-500">
+										No Image Available
+									</span>
 								)}
-								<h3 class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-30 text-white text-lg font-semibold p-2 text-center">
+								<h3 class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-30 text-white p-4 text-lg font-semibold">
 									{post.data.title}
 								</h3>
 							</div>
 							<div class="p-6">
-								<div class="flex items-center gap-2 mb-4">
+								<div class="flex flex-wrap gap-2 mb-4">
 									{post.data.tags.map((tag) => (
-										<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 border border-blue-200 text-blue-700 whitespace-nowrap">
+										<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 border border-blue-200 text-blue-700">
 											{tag}
 										</span>
 									))}
