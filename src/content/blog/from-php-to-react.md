@@ -5,7 +5,7 @@ date: "2025-02-21"
 pubDate: 2025-02-21
 tags: ["PHP", "React", "Web Development", "Best Practices"]
 description: "Exploring the evolution of mixing logic and templates from PHP to modern frameworks like React, Livewire, and Inertia."
-heroImage: "/images/blog/fromPhpToReact.jpg"
+heroImage: "/images/blog/fromphptoreact.jpg"
 ---
 
 
