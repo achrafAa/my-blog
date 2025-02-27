@@ -1,5 +1,91 @@
 @import "tailwindcss";
 
+/* Basic paragraph spacing for regular content */
 p {
-  margin-bottom: 1.5rem; /* Adjust the value as needed */
+  margin-bottom: 1.5rem;
+}
+
+/* Blog post content styles - scoped to the article content */
+.prose h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #1e3a8a; /* dark blue */
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  color: #1e40af; /* medium blue */
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 1rem;
+  color: #2563eb; /* lighter blue */
+}
+
+.prose h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose ul, 
+.prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose pre {
+  background-color: #f1f5f9;
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+}
+
+.prose code {
+  font-family: monospace;
+  background-color: #f1f5f9;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+}
+
+.prose blockquote {
+  border-left: 4px solid #2563eb;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: #4b5563;
+}
+
+/* Link styles */
+.prose a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #1d4ed8;
 }
