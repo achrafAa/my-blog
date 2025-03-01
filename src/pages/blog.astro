@@ -48,9 +48,9 @@ const postsByYear = posts.reduce((acc, post) => {
                 )}
               </div>
               <div class="p-8 md:w-1/2 flex flex-col justify-center">
-                <div class="flex items-center gap-2 mb-4">
-                  {posts[0].data.tags.map((tag) => (
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  {posts[0].data.tags.slice(0, 4).map((tag) => (
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                       {tag}
                     </span>
                   ))}
@@ -103,14 +103,16 @@ const postsByYear = posts.reduce((acc, post) => {
                     )}
                     <div class="p-6">
                       <div class="flex flex-wrap gap-2 mb-4">
-                        {post.data.tags.map((tag) => (
-                          <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                        {post.data.tags.slice(0, 3).map((tag) => (
+                          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                             {tag}
                           </span>
                         ))}
                       </div>
                       <h3 class="text-xl font-semibold text-gray-900 mb-2 line-clamp-2">
-                        {post.data.title}
+                        <a href={`/blog/${post.slug}`} class="hover:text-blue-600 transition-colors">
+                          {post.data.title}
+                        </a>
                       </h3>
                       <p class="text-gray-600 mb-4 line-clamp-2">
                         {post.data.description}
